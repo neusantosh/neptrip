@@ -17,6 +17,8 @@
 	<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/site.js');?> 
 	<title><?php echo CHtml::encode($this->pageTitle); ?>::Neptrip</title>
 	<?php Yii::app()->bootstrap->register();?>
+
+	<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->request->baseUrl; ?>/plugins/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>

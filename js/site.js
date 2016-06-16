@@ -164,4 +164,9 @@ $(document).ready(function(){
 		});
 	});
 
+	$('.view_more').click(function(){
+		var id = $(this).attr('data-id');
+		$('#room_details_'+id).toggle();
+	});
+
 });

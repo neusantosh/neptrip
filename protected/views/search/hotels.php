@@ -1,4 +1,10 @@
 <div class="hotel_searchresults">
+
+	<div class="search_form">
+		Search form here
+	</div>
+
+
 	<legend>Hotel Search Results</legend>
 	<?php
 		if(!empty($records) && is_array($records)){
@@ -31,6 +37,7 @@
 						        array('label'=>$record['city_village'].', '.Districts::model()->getName($record['district']).', '.Zones::model()->getZoneName($record['zone']), 'icon'=>'map-marker'), // This is from YiiBootstrap
 						    ),
 					)); 
+
 					$this->widget('ext.DzRaty.DzRaty', array(
 	    						'name' => 'my_rating_field_'.$record['id'],
 	    						'value' => $record['star_rating'],
@@ -38,11 +45,12 @@
   									  'readOnly' => TRUE,
 								),
 					));
+
 					?>
 				</div>
 
 				<?php $temp = explode('?',Yii::app()->request->url);?>
-				<a href="<?php echo $this->createUrl('hotels/slug/'.$record['slug']);?>" class="btn btn-primary">Details</a>
+				<a href="<?php echo $this->createUrl('hotels/'.$record['slug']);?>" class="btn btn-primary">Details</a>
 
 				<hr/>
 

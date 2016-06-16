@@ -5,14 +5,15 @@ class HotelsController extends Controller{
 
 	}
 
-	public function actionView(){
-		$cur_url 		= Yii::app()->request->url;
-		$slug 	= substr(strrchr($cur_url, '/'), 1);
+	public function actionView($slug){
+		$details  = Hotels::model()->findAllByAttributes(array('slug'=>$slug));
 
-		$this->render('views', array(
-			'hotel_details' => Hotels::model()->findAllByAttributes(array('slug'=>$slug)),
-		));
+		$this->pageTitle = $details[0]['hotel_name'];
 		
+		$this->render('views', array(
+		 	'hotel_details' => $details,
+		));
+
 	}
 
 	public function actionManageHotels(){

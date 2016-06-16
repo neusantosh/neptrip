@@ -96,4 +96,14 @@ class Roomtypes extends CActiveRecord
 	{
 		return parent::model($className);
 	}
+
+	public function getRoom($type){
+		$criteria=new CDbCriteria;
+		$criteria->select 		= 'room_type';
+		$criteria->condition 	= 'id='.$type;
+		$res = self::model()->findAll($criteria);
+		if(!empty($res)){
+			return $res[0]['room_type'];
+		}
+	}
 }
